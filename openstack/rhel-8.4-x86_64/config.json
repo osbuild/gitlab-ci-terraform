@@ -2,5 +2,6 @@
     "user": "cloud-user",
     "runnerArch": "amd64",
     "maxInstances": 2,
-    "subscriptionNeeded": true
+    "subscriptionNeeded": false,
+    "nightlyRepoVarName": "RHEL84_NIGHTLY_REPO"
 }
