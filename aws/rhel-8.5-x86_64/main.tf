@@ -2,7 +2,7 @@ module "aws" {
   source = "../_base"
 
   name             = "rhel-8.5-x86_64"
-  ami              = "ami-0da1ac7dca595deca"
+  ami              = "ami-0c14d21e741b97c48"
   instance_type    = "c5.large"
   internal_network = var.internal_network
 }
