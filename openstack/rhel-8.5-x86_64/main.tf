@@ -2,7 +2,7 @@ module "openstack" {
   source = "../_base"
 
   name     = "rhel-8-5"
-  image_id = "8c818f23-3913-40ed-8e9d-74b6b53d55d2"
+  image_id = "0a96f6b9-6b53-4b1c-b618-c0aa8f2d5d3d"
 }
 
 output "ip_address" {
