@@ -1,5 +1,5 @@
 {
     "user": "fedora",
     "runnerArch": "amd64",
-    "maxInstances": 4
+    "maxInstances": 6
 }
