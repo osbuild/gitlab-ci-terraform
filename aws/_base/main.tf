@@ -29,6 +29,6 @@ resource "aws_spot_instance_request" "runner" {
     Name = var.name
   }
   root_block_device {
-    volume_size = 20
+    volume_size = 40
   }
 }
