@@ -16,7 +16,7 @@ provider "openstack" {
 # Create a web server
 resource "openstack_compute_instance_v2" "runner" {
   name      = var.name
-  flavor_id = "893c20cf-d5ea-4c7d-9eee-2bc4b3e5723e"
+  flavor_id = var.flavor_id
   image_id  = var.image_id
   key_pair  = "gitlab"
   network {
