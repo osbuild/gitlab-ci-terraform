@@ -2,8 +2,8 @@ module "openstack" {
   source = "../_base"
 
   name      = "rhel-9-0"
-  image_id  = "62b49be2-e9c6-46c2-b1bb-37e646ac87ed"
-  flavor_id = "4b04b7c3-ec50-469f-9c07-c41f0bff4972"
+  image_id  = "dc869d35-7350-43c3-b38f-1b178ec92395"
+  flavor_id = "c3ec7a0a-0443-4253-a6ab-040cc0278ced"
 }
 
 output "ip_address" {

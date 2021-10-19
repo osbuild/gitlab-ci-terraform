@@ -2,8 +2,8 @@ module "openstack" {
   source = "../_base"
 
   name      = "centos-stream-8"
-  image_id  = "dc716096-b661-42e2-aefe-ec9700b87ed4"
-  flavor_id = "893c20cf-d5ea-4c7d-9eee-2bc4b3e5723e"
+  image_id  = "0285b667-3d71-4e8d-a66d-a0442bae9116"
+  flavor_id = "f2c4469b-f516-46d1-8b87-1dcca68fb3d9"
 }
 
 output "ip_address" {

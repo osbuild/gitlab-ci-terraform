@@ -20,6 +20,6 @@ resource "openstack_compute_instance_v2" "runner" {
   image_id  = var.image_id
   key_pair  = "gitlab"
   network {
-    name = "provider_net_cci_11"
+    name = "shared_net_2"
   }
 }
