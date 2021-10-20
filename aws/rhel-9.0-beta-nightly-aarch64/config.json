@@ -1,5 +1,5 @@
 {
     "user": "cloud-user",
     "runnerArch": "aarch64",
-    "prepareScript": "sudo tee /etc/yum.repos.d/rhel9internal.repo <<EOT\n[RHEL-9-NIGHTLY-BaseOS]\nname=baseos\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/latest-RHEL-9.0.0/compose/BaseOS/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-9-NIGHTLY-AppStream]\nname=appstream\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/latest-RHEL-9.0.0/compose/AppStream/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-9-NIGHTLY-CRB]\nname=crb\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/latest-RHEL-9.0.0/compose/CRB/aarch64/os/\nenabled=1\ngpgcheck=0\nEOT"
+    "prepareScript": "sudo tee /etc/yum.repos.d/rhel9internal.repo <<EOT\n[RHEL-9-NIGHTLY-BaseOS]\nname=baseos\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/RHEL-9.0.0-20211017.6/compose/BaseOS/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-9-NIGHTLY-AppStream]\nname=appstream\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/RHEL-9.0.0-20211017.6/compose/AppStream/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-9-NIGHTLY-CRB]\nname=crb\nbaseurl=http://download.devel.redhat.com/rhel-9/nightly/RHEL-9-Beta/RHEL-9.0.0-20211017.6/compose/CRB/aarch64/os/\nenabled=1\ngpgcheck=0\nEOT"
 }
