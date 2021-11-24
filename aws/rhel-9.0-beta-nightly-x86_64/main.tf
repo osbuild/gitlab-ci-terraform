@@ -3,7 +3,7 @@ module "aws" {
 
   name             = "rhel-9.0-beta-nightly-x86_64"
   ami              = "ami-0bfad1ec951eb7bd7"
-  instance_type    = "c5.large"
+  instance_type    = "c6i.large"
   internal_network = var.internal_network
 }
 
