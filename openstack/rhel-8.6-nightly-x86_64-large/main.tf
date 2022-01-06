@@ -3,7 +3,7 @@ module "openstack" {
 
   name      = "rhel-8-6-nightly-large"
   image_id  = "c3ab9620-8d58-4af6-b8b6-44ee45514799"
-  flavor_id = "32a36607-c154-4c13-959b-3dbaffc642aa"
+  flavor_id = "c3ec7a0a-0443-4253-a6ab-040cc0278ced"
 }
 
 output "ip_address" {
