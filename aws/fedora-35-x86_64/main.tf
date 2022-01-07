@@ -1,9 +1,13 @@
 module "aws" {
   source = "../_base"
 
-  name             = "fedora-35-x86_64"
-  ami              = "ami-08b4ee602f76bff79"
-  instance_type    = "c6i.large"
+  name = "fedora-35-x86_64"
+  ami  = "ami-08b4ee602f76bff79"
+
+  # Fedora 35 AMI doesn't boot on c6i.large, let's use an older type
+  # See: https://pagure.io/cloud-sig/issue/359
+  # TODO for Fedora 36: update this to c6i.large for more performance
+  instance_type    = "c5a.large"
   internal_network = var.internal_network
 }
 
