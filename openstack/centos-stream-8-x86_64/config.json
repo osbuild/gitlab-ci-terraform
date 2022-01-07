@@ -1,5 +1,4 @@
 {
     "user": "centos",
-    "runnerArch": "amd64",
-    "maxInstances": 6
+    "runnerArch": "amd64"
 }

@@ -1,6 +1,5 @@
 {
     "user": "fedora",
     "runnerArch": "amd64",
-    "maxInstances": 6,
     "prepareScript": "sudo dnf update -y libmodulemd"
 }
