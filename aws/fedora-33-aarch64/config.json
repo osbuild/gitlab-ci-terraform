@@ -1,5 +1,0 @@
-{
-    "user": "fedora",
-    "runnerArch": "aarch64",
-    "prepareScript": "sudo dnf update -y libmodulemd"
-}
