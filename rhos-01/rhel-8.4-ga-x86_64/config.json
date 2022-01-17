@@ -1,6 +1,5 @@
 {
     "user": "cloud-user",
     "runnerArch": "amd64",
-    "maxInstances": 4,
     "subscriptionNeeded": true
 }
