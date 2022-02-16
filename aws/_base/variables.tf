@@ -17,3 +17,8 @@ variable "internal_network" {
   description = "Whether this instance should be in the internal network."
   type        = bool
 }
+
+variable "internal_subnet" {
+  description = "ID of an internal subnet"
+  type        = string
+}

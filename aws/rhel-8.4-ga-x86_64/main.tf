@@ -5,6 +5,7 @@ module "aws" {
   ami              = "ami-0ae9702360611e715"
   instance_type    = "c6i.large"
   internal_network = var.internal_network
+  internal_subnet  = var.internal_subnet
 }
 
 variable "internal_network" {
@@ -15,4 +16,10 @@ variable "internal_network" {
 
 output "ip_address" {
   value = module.aws.ip_address
+}
+
+variable "internal_subnet" {
+  description = "Which internal subnet to use."
+  type        = string
+  default     = ""
 }

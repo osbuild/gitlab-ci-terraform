@@ -9,6 +9,7 @@ module "aws" {
   # TODO for Fedora 36: update this to c6i.large for more performance
   instance_type    = "c5a.large"
   internal_network = var.internal_network
+  internal_subnet  = var.internal_subnet
 }
 
 variable "internal_network" {
@@ -19,4 +20,10 @@ variable "internal_network" {
 
 output "ip_address" {
   value = module.aws.ip_address
+}
+
+variable "internal_subnet" {
+  description = "Which internal subnet to use."
+  type        = string
+  default     = ""
 }

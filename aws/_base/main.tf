@@ -19,7 +19,7 @@ resource "aws_spot_instance_request" "runner" {
   wait_for_fulfillment = true
   spot_type            = "one-time"
 
-  subnet_id = var.internal_network ? data.aws_subnet.internal_subnet_primary.id : data.aws_subnet.external_subnet_primary.id
+  subnet_id = var.internal_network ? "${var.internal_subnet == "" ? data.aws_subnet.internal_subnet_primary.id : var.internal_subnet}" : data.aws_subnet.external_subnet_primary.id
 
   vpc_security_group_ids = [
     var.internal_network ? data.aws_security_group.internal_security_group.id : data.aws_security_group.external_security_group.id
