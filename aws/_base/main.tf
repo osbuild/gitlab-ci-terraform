@@ -31,4 +31,11 @@ resource "aws_spot_instance_request" "runner" {
   root_block_device {
     volume_size = 40
   }
+
+  # Preferably, we don't want this to ever time out so let's bump the timeout value to something ridiculous
+  # I've actually observed spot requests that took forever to delete. :/
+  # Idea: Deleting the instance itself instead of the spot instance request might help
+  timeouts {
+    delete = "1h"
+  }
 }
