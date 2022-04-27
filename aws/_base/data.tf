@@ -1,35 +1,22 @@
 ##############################################################################
-## VPC
-# Find the details for the internal VPC at AWS.
-data "aws_vpc" "internal_vpc" {
+# Find both internal subnets
+data "aws_subnet" "internalA" {
   filter {
-    name = "tag:Name"
-    values = [
-      "RD-Platform-Prod-US-East-1"
-    ]
+    name   = "tag:Name"
+    values = ["InternalA-ext"]
   }
 }
 
-# Find all of the subnet IDs from the internal VPC.
-data "aws_subnet_ids" "internal_subnets" {
-  vpc_id = data.aws_vpc.internal_vpc.id
+data "aws_subnet" "internalB" {
+  filter {
+    name   = "tag:Name"
+    values = ["InternalB-ext"]
+  }
 }
 
-# Find all of the subnets from the internal VPC.
-data "aws_subnet" "internal_subnets" {
-  for_each = data.aws_subnet_ids.internal_subnets.ids
-  id       = each.value
-}
-
-locals {
-  // convert to array so we can index this
-  // data.aws_subnet.internal_subnets is actually a map of subnets indexed by their IDs
-  internal_subnets = values(data.aws_subnet.internal_subnets)
-}
-
-# Find the primary subnet (aka the one that has the most available IP addresses)
+# Find the primary internal subnet (aka the one that has the most available IP addresses)
 data "aws_subnet" "internal_subnet_primary" {
-  id = local.internal_subnets[0].available_ip_address_count > local.internal_subnets[1].available_ip_address_count ? local.internal_subnets[0].id : local.internal_subnets[1].id
+  id = data.aws_subnet.internalA.available_ip_address_count > data.aws_subnet.internalB.available_ip_address_count ? data.aws_subnet.internalA.id : data.aws_subnet.internalB.id
 }
 
 # Find the default VPC (not internal).
