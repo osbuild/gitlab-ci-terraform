@@ -12,30 +12,42 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-resource "aws_spot_instance_request" "runner" {
-  ami                  = var.ami
-  instance_type        = var.instance_type
-  key_name             = "gitlab-runner"
-  wait_for_fulfillment = true
-  spot_type            = "one-time"
+resource "aws_spot_fleet_request" "runner" {
+  allocation_strategy = "lowestPrice"
 
-  subnet_id = var.internal_network ? data.aws_subnet.internal_subnet_primary.id : data.aws_subnet.external_subnet_primary.id
+  fleet_type                          = "request"
+  iam_fleet_role                      = data.aws_iam_role.spot_fleet_tagging_role.arn
+  target_capacity                     = 1
+  wait_for_fulfillment                = "true"
+  terminate_instances_with_expiration = "true"
 
-  vpc_security_group_ids = [
-    var.internal_network ? data.aws_security_group.internal_security_group.id : data.aws_security_group.external_security_group.id
-  ]
+  dynamic "launch_specification" {
+    for_each = setproduct(var.instance_types, var.internal_network ? local.internal_subnets : local.external_subnets)
+    content {
+      ami           = var.ami
+      subnet_id     = launch_specification.value[1]
+      key_name      = "gitlab-runner"
+      instance_type = launch_specification.value[0]
 
-  tags = {
-    Name = var.name
+      vpc_security_group_ids = [
+        var.internal_network ? data.aws_security_group.internal_security_group.id : data.aws_security_group.external_security_group.id
+      ]
+
+      root_block_device {
+        volume_size = 40
+      }
+
+      tags = {
+        Name = "Schutzbot runner"
+      }
+    }
   }
-  root_block_device {
-    volume_size = 40
-  }
+}
 
-  # Preferably, we don't want this to ever time out so let's bump the timeout value to something ridiculous
-  # I've actually observed spot requests that took forever to delete. :/
-  # Idea: Deleting the instance itself instead of the spot instance request might help
-  timeouts {
-    delete = "1h"
+data "aws_instance" "runner" {
+  depends_on = [aws_spot_fleet_request.runner]
+  filter {
+    name   = "tag:aws:ec2spot:fleet-request-id"
+    values = [aws_spot_fleet_request.runner.id]
   }
 }
