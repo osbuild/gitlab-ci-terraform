@@ -8,9 +8,9 @@ variable "ami" {
   type        = string
 }
 
-variable "instance_type" {
-  description = "Instance type to be launched."
-  type        = string
+variable "instance_types" {
+  description = "Instance types to be launched."
+  type        = list(any)
 }
 
 variable "internal_network" {

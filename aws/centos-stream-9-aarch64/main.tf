@@ -3,7 +3,7 @@ module "aws" {
 
   name             = "centos-stream-9-aarch64"
   ami              = "ami-08751d099be28f086"
-  instance_type    = "c6g.large"
+  instance_types   = ["c6g.large"]
   internal_network = var.internal_network
 }
 
