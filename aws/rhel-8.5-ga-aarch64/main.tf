@@ -3,7 +3,7 @@ module "aws" {
 
   name             = "rhel-8.5-ga-aarch64"
   ami              = "ami-06bbacb93891d7356"
-  instance_types   = ["c6g.large"]
+  instance_types   = ["c7g.large"]
   internal_network = var.internal_network
 }
 
