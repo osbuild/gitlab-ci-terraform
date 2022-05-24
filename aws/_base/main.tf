@@ -16,7 +16,7 @@ resource "aws_spot_fleet_request" "runner" {
   allocation_strategy = "lowestPrice"
 
   fleet_type                          = "request"
-  iam_fleet_role                      = data.aws_iam_role.spot_fleet_tagging_role.arn
+  iam_fleet_role                      = local.iam_fleet_role
   target_capacity                     = 1
   wait_for_fulfillment                = "true"
   terminate_instances_with_expiration = "true"

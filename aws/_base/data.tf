@@ -1,39 +1,3 @@
-##############################################################################
-# Find both internal subnets
-data "aws_subnet" "internalA" {
-  filter {
-    name   = "tag:Name"
-    values = ["InternalA-ext"]
-  }
-}
-
-data "aws_subnet" "internalB" {
-  filter {
-    name   = "tag:Name"
-    values = ["InternalB-ext"]
-  }
-}
-
-# Find the default VPC (not internal).
-data "aws_vpc" "external_vpc" {
-  default = true
-}
-
-# Find all of the subnet IDs from the default VPC.
-data "aws_subnets" "external_subnets" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.external_vpc.id]
-  }
-}
-
-locals {
-  internal_subnets = [data.aws_subnet.internalA.id, data.aws_subnet.internalB.id]
-  external_subnets = data.aws_subnets.external_subnets.ids
-}
-
-##############################################################################
-## Security groups
 data "aws_security_group" "internal_security_group" {
   filter {
     name = "tag:Name"
@@ -52,6 +16,10 @@ data "aws_security_group" "external_security_group" {
   }
 }
 
-data "aws_iam_role" "spot_fleet_tagging_role" {
-  name = "aws-ec2-spot-fleet-tagging-role"
+# These values are very stable so let's not query the AWS API everytime to save some resources and just hard code
+# them here.
+locals {
+  internal_subnets = ["subnet-03e28e3654aafc68c", "subnet-0f22a125bb08f9b1f"]
+  external_subnets = ["subnet-4920962f", "subnet-ddc07282", "subnet-8ba519aa", "subnet-9d4a0bd0", "subnet-0c016a02", "subnet-21fe3b10"]
+  iam_fleet_role   = "arn:aws:iam::933752197999:role/aws-ec2-spot-fleet-tagging-role"
 }
