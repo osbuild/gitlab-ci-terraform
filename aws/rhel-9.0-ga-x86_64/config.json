@@ -1,6 +1,5 @@
 {
     "user": "ec2-user",
     "runnerArch": "amd64",
-    "subscriptionNeeded": true,
-    "prepareScript": "sudo rm -f /etc/yum.repos.d/*rhui*.repo"
+    "subscriptionNeeded": true
 }
