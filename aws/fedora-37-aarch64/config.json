@@ -1,4 +1,5 @@
 {
     "user": "fedora",
-    "runnerArch": "aarch64"
+    "runnerArch": "aarch64",
+    "prepareScript": "sudo rm -rf /etc/yum.repos.d/*.repo"
 }
