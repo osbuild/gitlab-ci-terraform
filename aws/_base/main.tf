@@ -38,7 +38,13 @@ resource "aws_spot_fleet_request" "runner" {
       }
 
       tags = {
-        Name = "Schutzbot runner"
+        Name            = "Schutzbot runner"
+        Workload        = "CI Runner"
+        Job_name        = var.job_name
+        Project         = var.project
+        Branch          = var.branch
+        Pipeline_id     = var.pipeline_id
+        Pipeline_source = var.pipeline_source
       }
     }
   }
