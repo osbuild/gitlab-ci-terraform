@@ -3,7 +3,7 @@ module "aws" {
 
   name             = "fedora-37-aarch64"
   ami              = "ami-01bd3f31f182f38fc"
-  instance_types   = ["c7g.large"]
+  instance_types   = ["c7g.large", "c6gd.large", "m6gd.large"]
   internal_network = var.internal_network
 }
 

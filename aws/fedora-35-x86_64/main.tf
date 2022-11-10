@@ -7,7 +7,7 @@ module "aws" {
   # Fedora 35 AMI doesn't boot on c6i.large, let's use only AMD
   # See: https://pagure.io/cloud-sig/issue/359
   # TODO for Fedora 36: add c6i.large for more options
-  instance_types   = ["c6a.large", "c5.large", "c5a.large"]
+  instance_types   = ["m5d.large", "c5ad.large", "m5ad.large", "c5.large"]
   internal_network = var.internal_network
 }
 
