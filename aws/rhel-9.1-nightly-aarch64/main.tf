@@ -3,7 +3,7 @@ module "aws" {
 
   name             = "rhel-9.1-nightly-aarch64"
   ami              = "ami-0d2f9b81e9ec5778e"
-  instance_types   = ["c7g.large", "c6g.large"]
+  instance_types   = ["c7g.large", "c6gd.large", "m6gd.large"]
   internal_network = var.internal_network
   job_name         = var.job_name
   project          = var.project
