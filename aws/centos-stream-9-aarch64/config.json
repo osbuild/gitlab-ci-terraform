@@ -1,4 +1,4 @@
 {
-    "user": "ec2-user",
+    "user": "centos",
     "runnerArch": "aarch64"
 }
