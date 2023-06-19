@@ -20,7 +20,7 @@ resource "aws_spot_fleet_request" "runner" {
   target_capacity                     = 1
   wait_for_fulfillment                = "true"
   terminate_instances_with_expiration = "true"
-  valid_until                         = timeadd(timestamp(), "4h")
+  valid_until                         = timeadd(timestamp(), "5h")
 
   dynamic "launch_specification" {
     for_each = setproduct(var.instance_types, var.internal_network ? local.internal_subnets : local.external_subnets)
