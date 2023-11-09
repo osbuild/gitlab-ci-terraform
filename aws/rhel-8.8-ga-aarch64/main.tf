@@ -1,7 +1,7 @@
 module "aws" {
   source = "../_base"
 
-  name             = "rhel-8.8-ga-aarch64"
+  name             = "rhel-8.8-nightly-aarch64"
   ami              = "ami-063f3c5f5a42faba2"
   instance_types   = ["c7g.large", "c6gd.large", "m6gd.large"]
   internal_network = var.internal_network
