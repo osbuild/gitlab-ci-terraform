@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_spot_fleet_request" "runner" {
-  allocation_strategy = "priceCapacityOptimized"
+  allocation_strategy = "lowestPrice"
 
   fleet_type                          = "request"
   iam_fleet_role                      = local.iam_fleet_role
