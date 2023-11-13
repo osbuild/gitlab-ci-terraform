@@ -8,8 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_spot_fleet_request" "runner" {
