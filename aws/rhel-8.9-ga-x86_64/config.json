@@ -1,0 +1,6 @@
+{
+    "user": "ec2-user",
+    "runnerArch": "amd64",
+    "prepareScript": "sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms",
+    "subscriptionNeeded": true
+}
