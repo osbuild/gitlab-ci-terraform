@@ -24,10 +24,11 @@ resource "aws_spot_fleet_request" "runner" {
   dynamic "launch_specification" {
     for_each = setproduct(var.instance_types, var.internal_network ? local.internal_subnets : local.external_subnets)
     content {
-      ami           = var.ami
-      subnet_id     = launch_specification.value[1]
-      key_name      = "gitlab-runner"
-      instance_type = launch_specification.value[0]
+      ami                  = var.ami
+      subnet_id            = launch_specification.value[1]
+      key_name             = "gitlab-runner"
+      instance_type        = launch_specification.value[0]
+      iam_instance_profile = var.iam_instance_profile
 
       vpc_security_group_ids = [
         var.internal_network ? data.aws_security_group.internal_security_group.id : data.aws_security_group.external_security_group.id

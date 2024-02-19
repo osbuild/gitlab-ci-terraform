@@ -42,3 +42,9 @@ variable "pipeline_source" {
   description = "the source that triggered the job"
   type        = string
 }
+
+variable "iam_instance_profile" {
+  description = "instance profile to attach to the runner, the profile must exist"
+  type        = string
+  default     = null
+}
