@@ -1,15 +1,16 @@
 module "aws" {
   source = "../_base"
 
-  name             = "rhel-8.9-ga-x86_64"
-  ami              = "ami-0db0faf28583020fd"
-  instance_types   = ["m5.large", "m5d.large", "m5a.large", "m5ad.large", "m6a.large", "m6i.large", "m6id.large", "m7i.large", "m7a.large"]
-  internal_network = var.internal_network
-  job_name         = var.job_name
-  project          = var.project
-  branch           = var.branch
-  pipeline_id      = var.pipeline_id
-  pipeline_source  = var.pipeline_source
+  name                 = "rhel-8.9-ga-x86_64"
+  ami                  = "ami-0db0faf28583020fd"
+  instance_types       = ["m5.large", "m5d.large", "m5a.large", "m5ad.large", "m6a.large", "m6i.large", "m6id.large", "m7i.large", "m7a.large"]
+  internal_network     = var.internal_network
+  job_name             = var.job_name
+  project              = var.project
+  branch               = var.branch
+  pipeline_id          = var.pipeline_id
+  pipeline_source      = var.pipeline_source
+  iam_instance_profile = var.iam_instance_profile
 }
 
 variable "internal_network" {
@@ -50,4 +51,10 @@ variable "pipeline_source" {
   description = "the source that trigger the job"
   type        = string
   default     = "unset"
+}
+
+variable "iam_instance_profile" {
+  description = "instance profile to attach to the runner, the profile must exist"
+  type        = string
+  default     = null
 }
