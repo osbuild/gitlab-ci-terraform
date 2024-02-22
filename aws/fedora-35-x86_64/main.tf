@@ -7,13 +7,14 @@ module "aws" {
   # Fedora 35 AMI doesn't boot on c6i.large, let's use only AMD
   # See: https://pagure.io/cloud-sig/issue/359
   # TODO for Fedora 36: add c6i.large for more options
-  instance_types   = ["m5d.large", "c5ad.large", "m5ad.large", "c5.large"]
-  internal_network = var.internal_network
-  job_name         = var.job_name
-  project          = var.project
-  branch           = var.branch
-  pipeline_id      = var.pipeline_id
-  pipeline_source  = var.pipeline_source
+  instance_types       = ["m5d.large", "c5ad.large", "m5ad.large", "c5.large"]
+  internal_network     = var.internal_network
+  job_name             = var.job_name
+  project              = var.project
+  branch               = var.branch
+  pipeline_id          = var.pipeline_id
+  pipeline_source      = var.pipeline_source
+  iam_instance_profile = var.iam_instance_profile
 }
 
 variable "internal_network" {
@@ -54,4 +55,10 @@ variable "pipeline_source" {
   description = "the source that trigger the job"
   type        = string
   default     = "unset"
+}
+
+variable "iam_instance_profile" {
+  description = "instance profile to attach to the runner, the profile must exist"
+  type        = string
+  default     = null
 }
