@@ -1,8 +1,8 @@
 module "openstack" {
   source = "../_base"
 
-  name      = "rhel-9-4-ga-large"
-  image_id  = "35de4334-995e-4043-ae59-266f253b2306"
+  name      = "rhel-8-10-ga-large"
+  image_id  = "88ae54ac-d761-47f2-b587-e822c79880db"
   flavor_id = "2c6908ed-bb2b-43c7-8f9d-de790df5a4c0"
 }
 
