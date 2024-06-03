@@ -2,7 +2,7 @@ module "openstack" {
   source = "../_base"
 
   name      = "centos-stream-10"
-  image_id  = "placeholder"
+  image_id  = "63b8ea94-509d-4cd4-9cef-64b4c9fe0820"
   flavor_id = "2c6908ed-bb2b-43c7-8f9d-de790df5a4c0"
 }
 
