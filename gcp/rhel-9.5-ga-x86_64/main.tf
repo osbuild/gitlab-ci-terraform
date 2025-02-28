@@ -1,6 +1,6 @@
 module "google" {
   source           = "../_base"
-  image            = "placeholder"
+  image            = "ci-rhel-9-refresh-28-02-2025"
   machine_type     = "n2-standard-4"
   internal_network = var.internal_network
 }
