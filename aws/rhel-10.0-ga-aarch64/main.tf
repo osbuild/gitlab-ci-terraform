@@ -1,9 +1,9 @@
 module "aws" {
   source = "../_base"
 
-  name                 = "rhel-9.6-nightly-x86_64"
-  ami                  = "ami-0384f8081caef0b39"
-  instance_types       = ["m5.large", "m5d.large", "m5a.large", "m5ad.large", "m6a.large", "m6i.large", "m6id.large", "m7i.large", "m7a.large"]
+  name                 = "rhel-10.0-ga-aarch64"
+  ami                  = "placeholder"
+  instance_types       = ["m6g.large", "m6gd.large", "m7g.large", "m7gd.large"]
   internal_network     = var.internal_network
   job_name             = var.job_name
   project              = var.project
