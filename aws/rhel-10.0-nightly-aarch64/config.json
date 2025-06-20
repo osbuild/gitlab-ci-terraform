@@ -1,5 +1,0 @@
-{
-    "user": "ec2-user",
-    "runnerArch": "aarch64",
-    "prepareScript": "sudo rm -f /etc/yum.repos.d/*.repo; sudo tee /etc/yum.repos.d/rhel10internal.repo <<EOT\n[RHEL-10-NIGHTLY-BaseOS]\nname=baseos\nbaseurl=http://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/BaseOS/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-10-NIGHTLY-AppStream]\nname=appstream\nbaseurl=http://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/AppStream/aarch64/os/\nenabled=1\ngpgcheck=0\n\n[RHEL-10-NIGHTLY-CRB]\nname=crb\nbaseurl=http://download.devel.redhat.com/rhel-10/nightly/RHEL-10/latest-RHEL-10.0/compose/CRB/aarch64/os/\nenabled=1\ngpgcheck=0\nEOT"
-}
