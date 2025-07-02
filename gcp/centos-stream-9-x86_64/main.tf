@@ -1,6 +1,6 @@
 module "google" {
   source           = "../_base"
-  image            = "ci-centos-9-refresh-17-07-2024"
+  image            = "ci-centos-9-refresh-02-07-2025"
   machine_type     = "n2-standard-4"
   internal_network = var.internal_network
 }
