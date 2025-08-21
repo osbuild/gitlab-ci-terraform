@@ -35,7 +35,7 @@ resource "aws_spot_fleet_request" "runner" {
       ]
 
       root_block_device {
-        volume_size = 40
+        volume_size = 80
       }
 
       tags = {
