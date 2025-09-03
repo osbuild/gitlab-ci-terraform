@@ -1,9 +1,9 @@
 module "openstack" {
   source = "../_base"
 
-  name      = "rhel-9-7-nightly"
+  name      = "rhel-9-8-nightly-large"
   image_id  = "754d2603-a65c-4d8d-b5a5-94c735948e4d"
-  flavor_id = "bca7d8ab-b1a4-4883-b4c6-a9536d51ebdd"
+  flavor_id = "2c6908ed-bb2b-43c7-8f9d-de790df5a4c0"
 }
 
 output "ip_address" {
