@@ -2,7 +2,7 @@ module "aws" {
   source = "../_base"
 
   name                 = "rhel-10.2-nightly-aarch64"
-  ami                  = "ami-031533f0f71ab55aa"
+  ami                  = "ami-04de68cc6584963be"
   instance_types       = ["m6g.large", "m6gd.large", "m7g.large", "m7gd.large"]
   internal_network     = var.internal_network
   job_name             = var.job_name
