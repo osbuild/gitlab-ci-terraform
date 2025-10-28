@@ -25,7 +25,8 @@ resource "aws_spot_fleet_request" "runner" {
     for_each = setproduct(var.instance_types, var.internal_network ? local.internal_subnets : local.external_subnets)
     content {
       ami                  = var.ami
-      subnet_id            = launch_specification.value[1]
+      availability_zone    = launch_specification.value[1].az
+      subnet_id            = launch_specification.value[1].sn
       key_name             = "gitlab-runner"
       instance_type        = launch_specification.value[0]
       iam_instance_profile = var.iam_instance_profile
