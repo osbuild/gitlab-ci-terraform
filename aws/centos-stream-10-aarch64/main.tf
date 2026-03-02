@@ -2,7 +2,7 @@ module "aws" {
   source = "../_base"
 
   name                 = "centos-stream-10-aarch64"
-  ami                  = "ami-0be61b1fe455c201b"
+  ami                  = "ami-0cdf2f0520c3e6f56"
   instance_types       = ["m6g.large", "m6gd.large", "m7g.large", "m7gd.large", "m8gd.large"]
   internal_network     = var.internal_network
   job_name             = var.job_name
