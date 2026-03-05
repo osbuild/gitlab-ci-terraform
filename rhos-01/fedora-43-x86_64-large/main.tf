@@ -2,7 +2,7 @@ module "openstack" {
   source = "../_base"
 
   name      = "fedora-43-large"
-  image_id  = "c3767aba-d853-436a-b557-5b8205655956"
+  image_id  = "f2306798-10bd-489e-bbb6-f1599f7349c5"
   flavor_id = "2c6908ed-bb2b-43c7-8f9d-de790df5a4c0"
 }
 
