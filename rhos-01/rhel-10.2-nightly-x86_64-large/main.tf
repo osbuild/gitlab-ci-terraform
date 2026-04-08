@@ -2,7 +2,7 @@ module "openstack" {
   source = "../_base"
 
   name      = "rhel-10-2-nightly-large"
-  image_id  = "9d54a34d-04d7-4995-8e48-52750064ed20"
+  image_id  = "bfc47d8b-b959-46de-9b56-1eab65068a84"
   flavor_id = "2c6908ed-bb2b-43c7-8f9d-de790df5a4c0"
 }
 
