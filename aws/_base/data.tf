@@ -1,3 +1,10 @@
+data "aws_ami" "runner" {
+  filter {
+    name   = "image-id"
+    values = [var.ami]
+  }
+}
+
 data "aws_security_group" "internal_security_group" {
   filter {
     name = "tag:Name"
