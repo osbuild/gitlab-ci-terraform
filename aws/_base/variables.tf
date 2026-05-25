@@ -48,3 +48,9 @@ variable "iam_instance_profile" {
   type        = string
   default     = null
 }
+
+variable "nested_virtualization" {
+  description = "Enable nested virtualization (requires c8i/m8i/r8i instance types)."
+  type        = bool
+  default     = false
+}

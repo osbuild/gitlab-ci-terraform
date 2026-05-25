@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 6.18.0"
+      version = "~> 6.33.0"
     }
   }
 }
@@ -19,6 +19,13 @@ resource "aws_launch_template" "runner" {
     for_each = var.iam_instance_profile != null ? [var.iam_instance_profile] : []
     content {
       name = iam_instance_profile.value
+    }
+  }
+
+  dynamic "cpu_options" {
+    for_each = var.nested_virtualization ? [1] : []
+    content {
+      nested_virtualization = "enabled"
     }
   }
 
