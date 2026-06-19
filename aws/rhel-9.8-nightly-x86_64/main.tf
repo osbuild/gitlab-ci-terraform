@@ -3,7 +3,7 @@ module "aws" {
 
   name                 = "rhel-9.8-nightly-x86_64"
   ami                  = "ami-0396ee1f535e651dc"
-  instance_types       = ["m5.large", "m5d.large", "m5a.large", "m5ad.large", "m6a.large", "m6i.large", "m6id.large", "m7i.large", "m7a.large", "m7i-flex.large", "m8a.large", "m8i.large", "m8i-flex.large"]
+  instance_types       = ["t3.large", "m8i-flex.large", "m8azn.large", "m6idn.large", "m5dn.large", "t2.large", "m8id.large", "m5zn.large", "m5d.large", "r5n.large", "r5b.large", "r5a.large", "r5d.large"]
   internal_network     = var.internal_network
   job_name             = var.job_name
   project              = var.project
