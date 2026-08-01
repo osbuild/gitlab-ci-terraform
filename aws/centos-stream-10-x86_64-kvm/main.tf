@@ -2,7 +2,7 @@ module "aws" {
   source = "../_base"
 
   name                  = "centos-stream-10-x86_64-kvm"
-  ami                   = "ami-01915b9c7016e264c"
+  ami                   = "ami-06d3f1f54c3a0b504"
   instance_types        = ["c8i.large", "m8i.large", "r8i.large"]
   nested_virtualization = true
   internal_network      = var.internal_network
