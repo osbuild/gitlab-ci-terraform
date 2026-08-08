@@ -2,7 +2,7 @@ module "aws" {
   source = "../_base"
 
   name                  = "rhel-9.9-nightly-x86_64-kvm"
-  ami                   = "ami-0578c92636ae32d58"
+  ami                   = "ami-0ff1710b6f3e13411"
   instance_types        = ["c8i.large", "m8i.large", "r8i.large"]
   nested_virtualization = true
   internal_network      = var.internal_network
