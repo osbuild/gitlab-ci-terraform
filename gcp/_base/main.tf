@@ -29,7 +29,7 @@ resource "google_compute_instance" "runner" {
   boot_disk {
     initialize_params {
       image = var.image
-      size  = 40
+      size  = 60
     }
   }
   network_interface {
