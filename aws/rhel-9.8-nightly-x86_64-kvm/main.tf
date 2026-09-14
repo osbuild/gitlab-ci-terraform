@@ -3,7 +3,7 @@ module "aws" {
 
   name                  = "rhel-9.8-nightly-x86_64-kvm"
   ami                   = "ami-0396ee1f535e651dc"
-  instance_types        = ["c8i.large", "m8i.large", "r8i.large"]
+  instance_types        = ["m8i.large", "r8i.large"]
   nested_virtualization = true
   internal_network      = var.internal_network
   job_name              = var.job_name

@@ -3,7 +3,7 @@ module "aws" {
 
   name                  = "fedora-44-x86_64-kvm"
   ami                   = "ami-02d76cb24c5436fa3"
-  instance_types        = ["c8i.large", "m8i.large", "r8i.large"]
+  instance_types        = ["m8i.large", "r8i.large"]
   nested_virtualization = true
   internal_network      = var.internal_network
   job_name              = var.job_name
